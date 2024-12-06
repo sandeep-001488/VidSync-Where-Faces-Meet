@@ -1,7 +1,6 @@
-import Navbar from "@/components/ui/Navbar";
 import { StreamVideoProvider } from "@/providers/StreamClientProviders";
 import { Metadata } from "next";
-import React, { Children, ReactNode } from "react";
+import React, {  ReactNode } from "react";
 
 
 export const metadata: Metadata = {

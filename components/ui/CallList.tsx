@@ -8,7 +8,6 @@ import MeetingCard from "./MeetingCard";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
-import { title } from "process";
 
 const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
   const router = useRouter();
@@ -58,13 +57,15 @@ const {toast}=useToast()
        setRecordings(recordings);
      } catch (error) {
       toast({title:"try again later"})
+      console.log(error);
+      
      }
     };
 
     if (type === "recordings") {
       fetchRecordings();
     }
-  }, [type, callRecordings]);
+  }, [type, callRecordings,toast]);
 
   if (isLoading) return <Loader />;
 

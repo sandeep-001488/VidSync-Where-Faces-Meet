@@ -4,7 +4,7 @@ import React from "react";
 
 const Home = () => {
 
-  const now=new Date()
+  // const now=new Date()
 
   const time = moment().format("LT");
   const date = moment().format("dddd, MMMM D, YYYY");
