@@ -77,7 +77,6 @@ const {toast}=useToast()
       {calls && calls.length > 0 ? (
         calls.map((meeting: Call | CallRecording) => (
           <MeetingCard
-            // key={(meeting as Call).id}
             key={
               type === "recordings"
                 ? (meeting as CallRecording).filename

@@ -103,7 +103,7 @@ const MeetingTypeList = () => {
         <MeetingModel
           isOpen={meetingstState === "isScheduleMeeting"}
           onClose={() => setMeetingstState(undefined)}
-          title="Create Meeting"
+          title="Meeting"
           handleClick={createMeeting}
         >
           <div className="flex flex-col gap-2.5">
