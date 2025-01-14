@@ -7,6 +7,7 @@ import { useGetCallById } from "@/hooks/useGetCallById";
 import { StreamCall, StreamTheme } from "@stream-io/video-react-sdk";
 import { useParams } from "next/navigation";
 import React, { useState } from "react";
+import ErrorBoundary from "@/components/ui/ErrorBoundary";
 
 const Meeting = () => {
   const [isSetupComplete, setIsSetupComplete] = useState(false);
@@ -19,18 +20,21 @@ const Meeting = () => {
     return <Loader />;
   }
 
+
   return (
-    <main className="text-white h-screen w-full">
-      <StreamCall call={call}>
-        <StreamTheme>
-          {!isSetupComplete ? (
-            <MeetingSetup setIsSetupComplete={setIsSetupComplete} />
-          ) : (
-            <MeetingRoom />
-          )}
-        </StreamTheme>
-      </StreamCall>
-    </main>
+    <ErrorBoundary>
+      <main className="text-white h-screen w-full">
+        <StreamCall call={call}>
+          <StreamTheme>
+            {!isSetupComplete ? (
+              <MeetingSetup setIsSetupComplete={setIsSetupComplete} />
+            ) : (
+              <MeetingRoom />
+            )}
+          </StreamTheme>
+        </StreamCall>
+      </main>
+    </ErrorBoundary>
   );
 };
 
