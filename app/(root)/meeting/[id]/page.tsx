@@ -7,11 +7,14 @@ import { useGetCallById } from "@/hooks/useGetCallById";
 import { StreamCall, StreamTheme } from "@stream-io/video-react-sdk";
 import React, { useState } from "react";
 
-const Meeting = ({ params }: { params: Promise<{ id: string }> }) => {
+type Params = Promise<{ id: string }>;
+
+
+const Meeting = async({ params }: { params:Params }) => {
   // const { user, isLoaded } = useUser();
   const [isSetupComplete, setIsSetupComplete] = useState(false);
 
-  const { id } = React.use(params); // Unwrap the params Promise
+  const { id } = await params;
   const { call, isCallLoading } = useGetCallById(id);
 
   if (!call || isCallLoading) return <Loader />;
