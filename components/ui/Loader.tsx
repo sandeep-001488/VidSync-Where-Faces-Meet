@@ -1,6 +1,5 @@
-
 import Image from "next/image";
-import Link from "next/link"; 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
@@ -8,10 +7,10 @@ const Loader = () => {
   const pathName = usePathname();
 
   return (
-    <div className="flex-center h-screen w-full">
+    <div className="flex items-center justify-center h-screen w-full">
       {pathName === "/" ? (
         <Link href="/sign-in">
-          <button className="px-4 py-2 bg-blue-500 text-white rounded">
+          <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
             Go to Sign In
           </button>
         </Link>
